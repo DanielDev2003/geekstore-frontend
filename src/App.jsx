@@ -1,15 +1,20 @@
-import './App.css'
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AlertDismissible from './components/AlertDismissible';
+import { createBrowserRouter } from 'react-router-dom';
 
-function App() {
+import Layout from './template/Layout';
+import Home from './Views/Home';
+import ProductPage from './Views/ProductPage';
 
-  return (
-    <>
-      GeekStore
-      <AlertDismissible></AlertDismissible>
-    </>
-  )
-}
+const Router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/produto/:id", element: <ProductPage /> },
+    ],
+  },
+]);
 
-export default App
+export default Router;
