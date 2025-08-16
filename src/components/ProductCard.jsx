@@ -55,7 +55,7 @@ const ProductCard = ({ image, title, price, variant = 'home', id, product }) => 
         variant="top"
         src={image}
         alt={title}
-        style={{ height: '220px', objectFit: 'cover' }}
+        style={{ height: '400px', objectFit: 'cover' }}
       />
 
       <Card.Body

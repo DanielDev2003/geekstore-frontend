@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter } from 'react-router-dom';
 
 import Layout from './template/Layout';
-import Home from './Views/Home';
+import Home from './views/Home';
 import ProductPage from './Views/ProductPage';
 import Wishlist from './Views/Wishlist';
 import CartPage from './Views/CartPage'

@@ -19,7 +19,7 @@
     ]
   },
   {
-    "img": "/img/camisa-midoriya.jpg",
+    "img": "/assets/camisa-midoriya.jpg",
     "name": "CAMISETA OVERSIZED – MY HERO ACADEMY – MIDORIYA",
     "price": 70,
     "description": "Camiseta oversized inspirada no universo de My Hero Academy, com estampa do Midoriya.",
@@ -31,10 +31,10 @@
     "reviews": []
   },
   {
-    "img": "/img/camisa-naruto.jpg",
-    "name": "CAMISETA T-SHIRT – NARUTO – NARUTO/SASUKE",
+    "img": "/assets/camisa-naruto.jpg",
+    "name": "CAMISETA T-SHIRT – NARUTO",
     "price": 40,
-    "description": "Camiseta T-Shirt inspirada no universo de Naruto, com estampa exclusiva de Naruto e Sasuke, unindo estilo e conforto para fãs do anime.",
+    "description": "Camiseta T-Shirt inspirada no universo de Naruto, com estampa exclusiva de Naruto, unindo estilo e conforto para fãs do anime.",
     "installments": "4x R$10,00",
     "color": "Preto",
     "size": "P",
@@ -50,7 +50,7 @@
     ]
   },
   {
-    "img": "/img/camisa-zoro.jpg",
+    "img": "/assets/camisa-zoro.jpg",
     "name": "CAMISA – ONE PIECE – RORONOA ZORO",
     "price": 40,
     "description": "Camiseta inspirada no anime One Piece, com estampa do Roronoa Zoro.",
