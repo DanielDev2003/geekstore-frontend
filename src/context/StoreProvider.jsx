@@ -29,13 +29,34 @@ export const StoreProvider = ({ children }) => {
   };
 
   const addToCart = (product, quantity = 1) => {
-    const updated = [...cart, { ...product, quantity }];
+    const exists = cart.find((p) => p.id === product.id);
+
+    let updated;
+    if (exists) {
+      updated = cart.map((p) =>
+        p.id === product.id
+          ? { ...p, quantity: (p.quantity || 1) + quantity }
+          : p
+      );
+    } else {
+      updated = [...cart, { ...product, quantity }];
+    }
+
     setCart(updated);
     localStorage.setItem("cart", JSON.stringify(updated));
   };
 
   const removeFromCart = (productId) => {
     const updated = cart.filter((p) => p.id !== productId);
+    setCart(updated);
+    localStorage.setItem("cart", JSON.stringify(updated));
+  };
+
+  const updateQty = (productId, newQty) => {
+    if (newQty < 1) return;
+    const updated = cart.map((p) =>
+      p.id === productId ? { ...p, quantity: newQty } : p
+    );
     setCart(updated);
     localStorage.setItem("cart", JSON.stringify(updated));
   };
@@ -49,6 +70,7 @@ export const StoreProvider = ({ children }) => {
         removeFromWishlist,
         addToCart,
         removeFromCart,
+        updateQty
       }}
     >
       {children}

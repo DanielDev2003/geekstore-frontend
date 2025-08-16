@@ -6,6 +6,7 @@ import Layout from './template/Layout';
 import Home from './Views/Home';
 import ProductPage from './Views/ProductPage';
 import Wishlist from './Views/Wishlist';
+import CartPage from './Views/CartPage'
 
 const Router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const Router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/produto/:id", element: <ProductPage /> },
       { path: "/lista-de-desejos", element: <Wishlist /> },
+      { path: "/carrinho", element: <CartPage /> },
     ],
   },
 ]);

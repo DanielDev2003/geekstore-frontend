@@ -58,26 +58,28 @@ export default function Header() {
 
             <FaUserCircle color="#fff" size={22} style={{ cursor: "pointer" }} />
 
-            <div style={{ position: "relative", cursor: "pointer" }}>
-              <FaShoppingCart color="#fff" size={22} />
-              {cart.length > 0 && (
-                <span
-                  style={{
-                    position: "absolute",
-                    top: "-5px",
-                    right: "-10px",
-                    backgroundColor: "#FF0000",
-                    color: "#fff",
-                    borderRadius: "50%",
-                    padding: "2px 6px",
-                    fontSize: "12px",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {cart.length}
-                </span>
-              )}
-            </div>
+            <a href="/carrinho">
+                <div style={{ position: "relative", cursor: "pointer" }}>
+                <FaShoppingCart color="#fff" size={22} />
+                {cart.length > 0 && (
+                    <span
+                    style={{
+                        position: "absolute",
+                        top: "-5px",
+                        right: "-10px",
+                        backgroundColor: "#FF0000",
+                        color: "#fff",
+                        borderRadius: "50%",
+                        padding: "2px 6px",
+                        fontSize: "12px",
+                        fontWeight: "bold",
+                    }}
+                    >
+                    {cart.length}
+                    </span>
+                )}
+                </div>
+            </a>
           </div>
         </Container>
       </div>
