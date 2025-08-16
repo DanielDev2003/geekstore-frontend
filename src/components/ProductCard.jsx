@@ -21,32 +21,33 @@ const ProductCard = ({ image, title, price, onBuy, onRemove, variant = 'home', i
         onClick={() => isHome && navigate(`/produto/${id}`)}
         >
             
-        {isWishlist && onRemove && (
-            <div
-            style={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-                padding: '5px 10px 0 10px',
-            }}
-            >
-            <button
-                style={{
-                cursor: 'pointer',
-                backgroundColor: 'transparent',
-                border: 'none',
-                color: '#00b8b8',
-                fontSize: '0.9rem',
-                fontWeight: '500',
-                }}
-                onClick={(e) => {
-                e.stopPropagation();
-                onRemove();
-                }}
-            >
-                remover
-            </button>
-            </div>
-        )}
+            {isWishlist && onRemove && (
+                <div
+                    style={{
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                    padding: '5px 10px 0 10px',
+                    }}
+                >
+                    <button
+                    style={{
+                        cursor: 'pointer',
+                        backgroundColor: 'transparent',
+                        border: 'none',
+                        color: '#00b8b8',
+                        fontSize: '0.9rem',
+                        fontWeight: '500',
+                    }}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        onRemove();
+                        window.dispatchEvent(new Event("wishlistChanged"));
+                    }}
+                    >
+                    remover
+                    </button>
+                </div>
+                )}
 
         <Card.Img
             variant="top"
