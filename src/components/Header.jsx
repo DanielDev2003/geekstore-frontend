@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Container, Form, InputGroup, Button, Nav } from "react-bootstrap";
 import { FaHeart, FaUserCircle, FaShoppingCart, FaSearch } from "react-icons/fa";
-import logo from "../assets/react.svg";
+import logo from "../assets/logo.png";
 import { StoreContext } from "../context/StoreProvider";
 
 export default function Header() {
