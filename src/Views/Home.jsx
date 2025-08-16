@@ -62,18 +62,9 @@ export default function Home() {
                 image={prod.img}
                 title={prod.name}
                 price={prod.price}
-                onBuy={() => alert(`Você comprou: ${prod.name}`)}
                 variant="home"
+                product={prod}
               />
-              {/* <ProductCard 
-                variant="wishlist" 
-                id={index}
-                image={prod.img}
-                title={prod.name}
-                price={prod.price}
-                onBuy={() => console.log('Adicionar ao carrinho')}
-                onRemove={() => console.log('Remover')}
-              /> */}
             </Col>
           ))}
         </Row>

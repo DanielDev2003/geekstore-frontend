@@ -4,12 +4,7 @@ import ProductCard from "../components/ProductCard";
 import { StoreContext } from "../context/StoreProvider";
 
 export default function Wishlist() {
-  const { wishlist, removeFromWishlist, addToCart } = useContext(StoreContext);
-
-  const handleBuy = (product) => {
-    addToCart(product, 1);
-    alert(`Produto "${product.name}" adicionado ao carrinho!`);
-  };
+  const { wishlist } = useContext(StoreContext);
 
   return (
     <Container className="py-4">
@@ -29,8 +24,7 @@ export default function Wishlist() {
               image={prod.img}
               title={prod.name}
               price={prod.price}
-              onBuy={() => handleBuy(prod)}
-              onRemove={() => removeFromWishlist(prod.id)}
+              product={prod}
             />
           </Col>
         ))}
