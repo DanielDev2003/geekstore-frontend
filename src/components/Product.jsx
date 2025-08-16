@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Card, Button, Form, Image, Row, Col } from "react-bootstrap";
 import { CreditCard, StarFill, Star } from "react-bootstrap-icons";
+import { StoreContext } from "../context/StoreProvider";
 
 const StarRating = ({ rating }) => {
   const totalStars = 5;
@@ -8,11 +9,7 @@ const StarRating = ({ rating }) => {
   return (
     <div className="d-flex" style={{ color: "#ffc107" }}>
       {[...Array(totalStars)].map((_, index) =>
-        index < roundedRating ? (
-          <StarFill key={index} className="me-1" />
-        ) : (
-          <Star key={index} className="me-1" />
-        )
+        index < roundedRating ? <StarFill key={index} className="me-1" /> : <Star key={index} className="me-1" />
       )}
     </div>
   );
@@ -20,22 +17,9 @@ const StarRating = ({ rating }) => {
 
 export default function Product({ product }) {
   const [quantity, setQuantity] = useState(1);
+  const { addToWishlist, addToCart } = useContext(StoreContext);
 
   if (!product) return <p>Carregando produto...</p>;
-
-  const addToWishlist = (product) => {
-    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-    const exists = wishlist.find((p) => p.id === product.id);
-    if (!exists) {
-      wishlist.push(product);
-      localStorage.setItem("wishlist", JSON.stringify(wishlist));
-      alert("Produto adicionado à lista de desejos!");
-  
-      window.dispatchEvent(new Event("wishlistChanged"));
-    } else {
-      alert("Produto já está na lista de desejos.");
-    }
-  };
 
   return (
     <div className="p-4">
@@ -51,18 +35,10 @@ export default function Product({ product }) {
                 <Image src={product?.img} fluid rounded />
               </Col>
               <Col md={7} className="d-flex flex-column justify-content-start ps-3">
-                <h5
-                  style={{
-                    fontWeight: "bold",
-                    textTransform: "uppercase",
-                    marginBottom: "0.5rem",
-                  }}
-                >
+                <h5 style={{ fontWeight: "bold", textTransform: "uppercase", marginBottom: "0.5rem" }}>
                   {product?.name}
                 </h5>
-                <p style={{ fontSize: "1.1rem", lineHeight: "1.5" }}>
-                  {product?.description}
-                </p>
+                <p style={{ fontSize: "1.1rem", lineHeight: "1.5" }}>{product?.description}</p>
               </Col>
             </Row>
           </Card>
@@ -90,7 +66,7 @@ export default function Product({ product }) {
               </Form.Label>
               <Form.Select
                 value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
+                onChange={(e) => setQuantity(Number(e.target.value))}
                 style={{ width: "80px" }}
               >
                 {[1, 2, 3, 4, 5].map((q) => (
@@ -109,6 +85,7 @@ export default function Product({ product }) {
                 textTransform: "uppercase",
                 fontWeight: "bold",
               }}
+              onClick={() => addToCart(product, quantity)}
             >
               Adicionar ao carrinho
             </Button>
@@ -139,8 +116,7 @@ export default function Product({ product }) {
           <StarRating
             rating={
               product?.reviews?.length > 0
-                ? product.reviews.reduce((acc, r) => acc + r.rating, 0) /
-                  product.reviews.length
+                ? product.reviews.reduce((acc, r) => acc + r.rating, 0) / product.reviews.length
                 : 0
             }
           />

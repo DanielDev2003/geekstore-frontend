@@ -3,10 +3,12 @@ import { Outlet } from 'react-router-dom';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { StoreProvider } from '../context/StoreProvider';
 
 const Layout = () => {
   return (
-      <div className="d-flex flex-column min-vh-100">
+      <StoreProvider>
+        <div className="d-flex flex-column min-vh-100">
         <Header />
         <Container className="flex-grow-1">
           <main>
@@ -15,6 +17,7 @@ const Layout = () => {
         </Container>
         <Footer />
       </div>
+      </StoreProvider>
   );
 };
 

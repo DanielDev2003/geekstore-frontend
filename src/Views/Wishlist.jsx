@@ -1,23 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProductCard from "../components/ProductCard";
+import { StoreContext } from "../context/StoreProvider";
 
 export default function Wishlist() {
-  const [wishlist, setWishlist] = useState([]);
-
-  useEffect(() => {
-    const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-    setWishlist(storedWishlist);
-  }, []);
-
-  const handleRemove = (index) => {
-    const updatedWishlist = [...wishlist];
-    updatedWishlist.splice(index, 1);
-    setWishlist(updatedWishlist);
-    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
-  };
+  const { wishlist, removeFromWishlist, addToCart } = useContext(StoreContext);
 
   const handleBuy = (product) => {
+    addToCart(product, 1);
     alert(`Produto "${product.name}" adicionado ao carrinho!`);
   };
 
@@ -40,7 +30,7 @@ export default function Wishlist() {
               title={prod.name}
               price={prod.price}
               onBuy={() => handleBuy(prod)}
-              onRemove={() => handleRemove(index)}
+              onRemove={() => removeFromWishlist(prod.id)}
             />
           </Col>
         ))}

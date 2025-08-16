@@ -1,26 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { Container, Form, InputGroup, Button, Nav } from "react-bootstrap";
 import { FaHeart, FaUserCircle, FaShoppingCart, FaSearch } from "react-icons/fa";
 import logo from "../assets/react.svg";
+import { StoreContext } from "../context/StoreProvider";
 
 export default function Header() {
-  const [wishlistCount, setWishlistCount] = useState(0);
-
-  const updateWishlistCount = () => {
-    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-    setWishlistCount(wishlist.length);
-  };
-
-  useEffect(() => {
-    updateWishlistCount();
-
-    const handleWishlistChange = () => updateWishlistCount();
-    window.addEventListener("wishlistChanged", handleWishlistChange);
-
-    return () => {
-      window.removeEventListener("wishlistChanged", handleWishlistChange);
-    };
-  }, []);
+  const { wishlist, cart } = useContext(StoreContext);
 
   return (
     <header>
@@ -47,11 +32,11 @@ export default function Header() {
             </Button>
           </InputGroup>
 
-          <a href="/lista-de-desejos/">
-            <div className="d-flex align-items-center gap-3">
+          <div className="d-flex align-items-center gap-3">
+            <a href="/lista-de-desejos/">
               <div style={{ position: "relative", cursor: "pointer" }}>
                 <FaHeart color="#fff" size={20} />
-                {wishlistCount > 0 && (
+                {wishlist.length > 0 && (
                   <span
                     style={{
                       position: "absolute",
@@ -65,15 +50,35 @@ export default function Header() {
                       fontWeight: "bold",
                     }}
                   >
-                    {wishlistCount}
+                    {wishlist.length}
                   </span>
                 )}
               </div>
+            </a>
 
-              <FaUserCircle color="#fff" size={22} style={{ cursor: "pointer" }} />
-              <FaShoppingCart color="#fff" size={22} style={{ cursor: "pointer" }} />
+            <FaUserCircle color="#fff" size={22} style={{ cursor: "pointer" }} />
+
+            <div style={{ position: "relative", cursor: "pointer" }}>
+              <FaShoppingCart color="#fff" size={22} />
+              {cart.length > 0 && (
+                <span
+                  style={{
+                    position: "absolute",
+                    top: "-5px",
+                    right: "-10px",
+                    backgroundColor: "#FF0000",
+                    color: "#fff",
+                    borderRadius: "50%",
+                    padding: "2px 6px",
+                    fontSize: "12px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {cart.length}
+                </span>
+              )}
             </div>
-          </a>
+          </div>
         </Container>
       </div>
 
