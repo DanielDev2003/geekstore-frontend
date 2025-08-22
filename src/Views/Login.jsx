@@ -19,7 +19,7 @@ export default function Login() {
           <span className="eye-icon">👁️</span>
         </div>
 
-        <button className="btn-primary">Entrar</button>
+        <button className="btn-primary btn-login">Entrar</button>
 
         <Link className="link" to="#">Esqueci minha senha</Link>
         <p>Não tem conta? <Link to="/cadastro">Cadastrar</Link></p>

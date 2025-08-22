@@ -23,7 +23,7 @@ export default function Register() {
           <span className="eye-icon">👁️</span>
         </div>
 
-        <button className="btn-primary">Criar</button>
+        <button className="btn-primary btn-login">Criar</button>
 
         <p>Já tem uma conta? <Link to="/login">Login</Link></p>
       </div>

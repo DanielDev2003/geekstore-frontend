@@ -69,7 +69,7 @@
   cursor: pointer;
 }
 
-/* .btn-primary {
+.btn-login {
   width: 100%;
   padding: 12px;
   background: #09009c;
@@ -80,7 +80,7 @@
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-} */
+}
 
 .link {
   margin-top: 10px;
