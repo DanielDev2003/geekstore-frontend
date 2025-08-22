@@ -8,8 +8,8 @@ import Wishlist from './Views/Wishlist';
 import CartPage from './Views/CartPage'
 import ReviewForm from './Views/ReviewForm';
 import Home from './Views/Home';
-import Login from './views/Login';
-import Register from './views/Register';
+import Login from './Views/Login';
+import Register from './Views/Register';
 
 const Router = createBrowserRouter([
   {
