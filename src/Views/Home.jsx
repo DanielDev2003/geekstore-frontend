@@ -5,6 +5,8 @@ import ProductCard from "../components/ProductCard";
 import categoriasData from "../data/categorias.json";
 import produtosData from "../data/produtos.json";
 
+import bannerImage from "../assets/banner.png";
+
 export default function Home() {
   const [categorias, setCategorias] = useState([]);
   const [produtos, setProdutos] = useState([]);
@@ -17,7 +19,7 @@ export default function Home() {
   return (
     <Container fluid className="p-0">
       <Image
-        src="/img/banner.jpg"
+        src={bannerImage}
         alt="Banner GeekStore"
         fluid
         style={{ width: "100%", maxHeight: "350px", objectFit: "cover" }}
@@ -29,9 +31,9 @@ export default function Home() {
             <Col
               key={index}
               xs="auto"
-              className="text-center m-2 p-3"
+              className="text-center m-4 p-3"
               style={{
-                backgroundColor: "#1500A3",
+                backgroundColor: "#1800ad",
                 borderRadius: "8px",
                 cursor: "pointer",
               }}
@@ -39,7 +41,7 @@ export default function Home() {
               <Image
                 src={cat.img}
                 alt={cat.alt}
-                style={{ width: "50px", height: "50px" }}
+                style={{ width: "150px", height: "150px" }}
               />
             </Col>
           ))}

@@ -3,11 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter } from 'react-router-dom';
 
 import Layout from './template/Layout';
-import Home from './Views/Home';
 import ProductPage from './Views/ProductPage';
 import Wishlist from './Views/Wishlist';
 import CartPage from './Views/CartPage'
 import ReviewForm from './Views/ReviewForm';
+import Home from './Views/Home';
+import Login from './views/Login';
+import Register from './views/Register';
 
 const Router = createBrowserRouter([
   {
@@ -21,6 +23,8 @@ const Router = createBrowserRouter([
       { path: "/avaliar", element: <ReviewForm /> },
     ],
   },
+  { path: "/login", element: <Login /> },
+  { path: "/cadastro", element: <Register /> }
 ]);
 
 export default Router;

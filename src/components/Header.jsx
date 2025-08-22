@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { Container, Form, InputGroup, Button, Nav } from "react-bootstrap";
 import { FaHeart, FaUserCircle, FaShoppingCart, FaSearch } from "react-icons/fa";
-import logo from "../assets/react.svg";
+import logo from "../assets/logo.png";
 import { StoreContext } from "../context/StoreProvider";
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   const { wishlist, cart } = useContext(StoreContext);
@@ -12,8 +13,12 @@ export default function Header() {
       <div style={{ backgroundColor: "#1500A3", padding: "10px 0" }}>
         <Container fluid className="d-flex align-items-center justify-content-between">
           <div className="d-flex align-items-center">
-            <img src={logo} alt="GeekStore" style={{ height: "40px", marginRight: "10px" }} />
-            <span style={{ color: "#fff", fontWeight: "bold", fontSize: "18px" }}>GEEKSTORE</span>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <div className="d-flex align-items-center">
+                <img src={logo} alt="GeekStore" style={{ height: "48px", marginRight: "10px" }} />
+                <span style={{ color: "#fff", fontWeight: "bold", fontSize: "18px" }}>GEEKSTORE</span>
+              </div>
+            </Link>
           </div>
 
           <InputGroup style={{ maxWidth: "600px" }}>
@@ -56,7 +61,10 @@ export default function Header() {
               </div>
             </a>
 
-            <FaUserCircle color="#fff" size={22} style={{ cursor: "pointer" }} />
+            <Link to="/login">
+              <FaUserCircle color="#fff" size={22} style={{ cursor: "pointer" }} />
+            </Link>
+
 
             <a href="/carrinho">
                 <div style={{ position: "relative", cursor: "pointer" }}>
