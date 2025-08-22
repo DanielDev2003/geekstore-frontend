@@ -61,7 +61,10 @@ export default function Header() {
               </div>
             </a>
 
-            <FaUserCircle color="#fff" size={22} style={{ cursor: "pointer" }} />
+            <Link to="/login">
+              <FaUserCircle color="#fff" size={22} style={{ cursor: "pointer" }} />
+            </Link>
+
 
             <a href="/carrinho">
                 <div style={{ position: "relative", cursor: "pointer" }}>

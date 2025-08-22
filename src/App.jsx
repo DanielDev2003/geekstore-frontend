@@ -7,6 +7,8 @@ import ProductPage from './Views/ProductPage';
 import Wishlist from './Views/Wishlist';
 import CartPage from './Views/CartPage'
 import Home from './Views/Home';
+import Login from './views/Login';
+import Register from './views/Register';
 
 const Router = createBrowserRouter([
   {
@@ -19,6 +21,8 @@ const Router = createBrowserRouter([
       { path: "/carrinho", element: <CartPage /> },
     ],
   },
+  { path: "/login", element: <Login /> },
+  { path: "/cadastro", element: <Register /> }
 ]);
 
 export default Router;
