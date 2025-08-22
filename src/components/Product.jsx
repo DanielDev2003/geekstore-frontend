@@ -2,10 +2,14 @@ import React, { useState, useContext } from "react";
 import { Card, Button, Form, Image, Row, Col } from "react-bootstrap";
 import { CreditCard, StarFill, Star } from "react-bootstrap-icons";
 import { StoreContext } from "../context/StoreProvider";
+import { useNavigate } from "react-router-dom";
 
 const StarRating = ({ rating }) => {
   const totalStars = 5;
   const roundedRating = Math.round(rating);
+  
+
+  const navigate = useNavigate();
   return (
     <div className="d-flex" style={{ color: "#ffc107" }}>
       {[...Array(totalStars)].map((_, index) =>
@@ -140,7 +144,21 @@ export default function Product({ product }) {
             ))
           )}
         </Card>
+        <a href="/avaliar">
+        <Button
+          className="mt-3"
+          style={{
+            backgroundColor: "#4b29ff",
+            border: "none",
+            fontWeight: "bold",
+            textTransform: "uppercase",
+          }}
+        >
+          Avaliar Produto
+        </Button>
+        </a>
       </div>
+
     </div>
   );
 }

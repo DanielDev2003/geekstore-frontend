@@ -7,6 +7,7 @@ import Home from './Views/Home';
 import ProductPage from './Views/ProductPage';
 import Wishlist from './Views/Wishlist';
 import CartPage from './Views/CartPage'
+import ReviewForm from './Views/ReviewForm';
 
 const Router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const Router = createBrowserRouter([
       { path: "/produto/:id", element: <ProductPage /> },
       { path: "/lista-de-desejos", element: <Wishlist /> },
       { path: "/carrinho", element: <CartPage /> },
+      { path: "/avaliar", element: <ReviewForm /> },
     ],
   },
 ]);
